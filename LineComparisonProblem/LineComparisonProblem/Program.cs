@@ -7,29 +7,13 @@ namespace LineComparisonProblem
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Line Comparison Computation.");
-            int x1, x2, y1, y2, x3, y3, x4, y4;
-            Console.WriteLine("Enter values x1 and y1 for Line 1");
-            x1 = Convert.ToInt32(Console.ReadLine());
-            y1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter values x2 and y2 for Line 1");
-            x2 = Convert.ToInt32(Console.ReadLine());
-            y2 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter values x1 and y1 for Line 2");
-            x3 = Convert.ToInt32(Console.ReadLine());
-            y3 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter values x2 and y2 for Line 2");
-            x4 = Convert.ToInt32(Console.ReadLine());
-            y4 = Convert.ToInt32(Console.ReadLine());
-            double len1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-            double len2 = Math.Sqrt(Math.Pow(x4 - x3, 2) + Math.Pow(y4 - y3, 2));
-            int diffLength = len1.CompareTo(len2);
-            if (diffLength == 0)
-                Console.WriteLine("Both Lines are equal in length");
-            else if (diffLength > 0)
-                Console.WriteLine("Line 1 is greater in length than Line 2");
-            else
-                Console.WriteLine("Line 1 is smaller in length than Line 2");
-
+            LineCompare line = new LineCompare();
+            double[] lineLength = new double[2];
+            for (int numLines = 0; numLines < 2; numLines++)
+            {
+                lineLength[numLines] = line.CalculateLength();
+            }
+            line.CompareLength(lineLength[0], lineLength[1]);
         }
     }
 }
